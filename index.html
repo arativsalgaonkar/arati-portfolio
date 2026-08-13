@@ -279,26 +279,30 @@
         <section id="contact">
             <h2>Contact Me</h2>
 
-            <form>
+            <form action="https://api.web3forms.com/submit" method="POST">
+
+                <input type="hidden" name="access_key" value="7d1fd770-97ff-40c4-a314-fbfc05d2891b">
+                <input type="hidden" name="subject" value="New message from portfolio site">
+                <input type="hidden" name="from_name" value="Arati's Portfolio Contact Form">
 
                 <label for="name">Name:</label>
                 <br>
 
-                <input type="text" id="name" name="name">
+                <input type="text" id="name" name="name" required>
 
                 <br><br>
 
                 <label for="email">Email:</label>
                 <br>
 
-                <input type="email" id="email" name="email">
+                <input type="email" id="email" name="email" required>
 
                 <br><br>
 
                 <label for="message">Message:</label>
                 <br>
 
-                <textarea id="message" name="message" rows="5" cols="30"></textarea>
+                <textarea id="message" name="message" rows="5" cols="30" required></textarea>
 
                 <br><br>
 

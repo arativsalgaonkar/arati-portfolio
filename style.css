@@ -649,7 +649,13 @@ section h2::after {
   font-family: var(--font-display);
   font-size: 0.95rem;
   background: var(--bg-cream);
+  color: var(--charcoal);
   transition: border 0.25s ease, box-shadow 0.25s ease;
+}
+
+#contact input::placeholder,
+#contact textarea::placeholder {
+  color: var(--text-muted);
 }
 
 #contact input:focus,
