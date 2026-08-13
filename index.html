@@ -12,6 +12,30 @@
 
     <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
 
+    <div class="bg-grid"></div>
+
+    <div class="floating-shapes">
+        <div class="shape shape-circle s1"></div>
+        <div class="shape shape-square s2"></div>
+        <div class="shape shape-triangle s3"></div>
+        <div class="shape shape-ring s4"></div>
+        <div class="shape shape-circle s5"></div>
+        <div class="shape shape-hex s6"></div>
+        <div class="shape shape-circle s7"></div>
+        <div class="shape shape-square s8"></div>
+    </div>
+
+    <div class="floating-symbols" aria-hidden="true">
+        <span class="sym-1">&lt;/&gt;</span>
+        <span class="sym-2">{ }</span>
+        <span class="sym-3">01</span>
+        <span class="sym-4">1</span>
+        <span class="sym-5">( )</span>
+        <span class="sym-6">0</span>
+        <span class="sym-7">10</span>
+        <span class="sym-8">[ ]</span>
+    </div>
+
     <!-- Header -->
     <header>
         <h1>Arati V Salgaonkar</h1>
@@ -34,39 +58,43 @@
 
         <!-- About Me -->
         <section id="about">
-            <h2>About Me</h2>
+            <h2><span class="tag">Get to know me</span>About Me</h2>
 
-            <img src="profile.jpeg" alt="Photo of Arati V Salgaonkar" width="300">
+            <div class="about-media">
+                <img src="profile.jpeg" alt="Photo of Arati V Salgaonkar" width="300">
+            </div>
 
-            <p>
-                Hi, I'm Arati 👋
-            </p>
+            <div class="about-text">
+                <p>
+                    Hi, I'm Arati 👋
+                </p>
 
-            <p>
-                I'm an AI & ML Engineer and Computer Science student who loves
-                turning ideas into practical solutions using Artificial
-                Intelligence, Machine Learning, and software development.
-            </p>
+                <p>
+                    I'm an AI & ML Engineer and Computer Science student who loves
+                    turning ideas into practical solutions using Artificial
+                    Intelligence, Machine Learning, and software development.
+                </p>
 
-            <p>
-                I enjoy building projects that solve real-world problems,
-                exploring new technologies, and continuously improving my skills.
-                From AI/ML projects and data-driven applications to web
-                development, I'm always curious to learn, create, and experiment.
-            </p>
+                <p>
+                    I enjoy building projects that solve real-world problems,
+                    exploring new technologies, and continuously improving my skills.
+                    From AI/ML projects and data-driven applications to web
+                    development, I'm always curious to learn, create, and experiment.
+                </p>
 
-            <p>
-                Currently pursuing my B.E. in Artificial Intelligence & Machine
-                Learning, I'm working towards becoming a well-rounded software
-                professional who can combine technical skills, creativity, and
-                problem-solving to build meaningful solutions.
-            </p>
+                <p>
+                    Currently pursuing my B.E. in Artificial Intelligence & Machine
+                    Learning, I'm working towards becoming a well-rounded software
+                    professional who can combine technical skills, creativity, and
+                    problem-solving to build meaningful solutions.
+                </p>
+            </div>
         </section>
 
 
         <!-- Interests -->
         <section id="interests">
-            <h2>My Interests</h2>
+            <h2><span class="tag">What I'm into</span>My Interests</h2>
 
             <ul>
                 <li>Artificial Intelligence & Machine Learning</li>
@@ -82,7 +110,7 @@
 
         <!-- Skills -->
         <section id="skills">
-            <h2>Skills</h2>
+            <h2><span class="tag">What I work with</span>Skills</h2>
 
             <article>
                 <h3>Programming</h3>
@@ -119,7 +147,9 @@
 
         <!-- Projects -->
         <section id="projects">
-            <h2>Projects</h2>
+            <h2><span class="tag">Things I've built</span>Projects</h2>
+
+            <div class="projects-grid">
 
             <article>
                 <h3>StyleSense — AI-Driven Outfit Recommendation System</h3>
@@ -165,12 +195,16 @@
                     Python · Pandas · SQL · Power BI
                 </p>
             </article>
+
+            </div>
         </section>
 
 
         <!-- Achievements -->
         <section id="achievements">
-            <h2>Achievements & Roles</h2>
+            <h2><span class="tag">Recognition</span>Achievements & Roles</h2>
+
+            <div class="achievements-grid">
 
             <article>
                 <h3>🏆 Vice President — LANG NET Club</h3>
@@ -216,6 +250,8 @@
                     Journal of Network Security, Vol. 12, Issue 02, 2024
                 </p>
             </article>
+
+            </div>
         </section>
 
 
@@ -231,7 +267,7 @@
             </p>
 
             <p>
-                <a href="https://github.com/arativsalgaonkar"
+                <a href="https://github.com/ARATIVSALGAONKAR05-commits"
                    target="_blank">
                     Visit my GitHub
                 </a>
@@ -283,9 +319,12 @@
         const toggleBtn = document.getElementById('theme-toggle');
         const body = document.body;
 
-        // Load saved preference
+        // Default to dark unless the visitor explicitly chose light before
         const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
+        if (savedTheme === 'light') {
+            body.removeAttribute('data-theme');
+            toggleBtn.textContent = '🌙';
+        } else {
             body.setAttribute('data-theme', 'dark');
             toggleBtn.textContent = '☀️';
         }
