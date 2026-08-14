@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arati V Salgaonkar | About Me</title>
+    <title>Arati V Salgaonkar</title>
+    <meta name="description" content="Portfolio of Arati V Salgaonkar — AI &amp; ML Engineering student. Projects, skills, publications, and achievements.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -267,7 +269,7 @@
             </p>
 
             <p>
-                <a href="https://github.com/arativsalgaonkar"
+                <a href="https://github.com/ARATIVSALGAONKAR05-commits"
                    target="_blank">
                     Visit my GitHub
                 </a>
@@ -279,7 +281,7 @@
         <section id="contact">
             <h2>Contact Me</h2>
 
-            <form action="https://api.web3forms.com/submit" method="POST">
+            <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
 
                 <input type="hidden" name="access_key" value="7d1fd770-97ff-40c4-a314-fbfc05d2891b">
                 <input type="hidden" name="subject" value="New message from portfolio site">
@@ -306,7 +308,9 @@
 
                 <br><br>
 
-                <button type="submit">Send Message</button>
+                <button type="submit" id="submit-btn">Send Message</button>
+
+                <p id="form-status" style="display:none; margin-top: 14px;"></p>
 
             </form>
         </section>
@@ -343,6 +347,44 @@
                 body.setAttribute('data-theme', 'dark');
                 toggleBtn.textContent = '☀️';
                 localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Contact form — submit via fetch so we can show a clean message
+        // instead of redirecting to a blank JSON response page.
+        const contactForm = document.getElementById('contact-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const formStatus = document.getElementById('form-status');
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: new FormData(contactForm),
+                    headers: { 'Accept': 'application/json' }
+                });
+                const result = await response.json();
+
+                formStatus.style.display = 'block';
+                if (response.ok) {
+                    formStatus.style.color = '#2E7D32';
+                    formStatus.textContent = "Thanks! Your message has been sent — I'll get back to you soon.";
+                    contactForm.reset();
+                } else {
+                    formStatus.style.color = 'var(--red)';
+                    formStatus.textContent = result.message || 'Something went wrong. Please try again.';
+                }
+            } catch (error) {
+                formStatus.style.display = 'block';
+                formStatus.style.color = 'var(--red)';
+                formStatus.textContent = 'Network error — please check your connection and try again.';
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
             }
         });
     </script>

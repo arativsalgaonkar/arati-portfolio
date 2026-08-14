@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A1A1E"/>
+      <stop offset="100%" stop-color="#2E2E33"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="64" height="64" rx="16" fill="url(#bgGrad)"/>
+
+  <!-- circuit traces, each ending in a pastel node -->
+  <g stroke="#FF4B4B" stroke-width="1.6" fill="none" opacity="0.6" stroke-linecap="round">
+    <path d="M4 12 H14 V6"/>
+    <path d="M60 14 H50 V8"/>
+    <path d="M4 52 H12 V58"/>
+    <path d="M60 50 H52 V58"/>
+  </g>
+  <circle cx="14" cy="6" r="2.2" fill="#D6ECFF"/>
+  <circle cx="50" cy="8" r="2.2" fill="#E3D9FF"/>
+  <circle cx="12" cy="58" r="2.2" fill="#FFE1D6"/>
+  <circle cx="52" cy="58" r="2.2" fill="#C8F4E0"/>
+
+  <!-- AVS monogram -->
+  <text x="32" y="41" font-family="'Space Grotesk', 'JetBrains Mono', Arial, sans-serif"
+        font-size="22" font-weight="700" fill="#FFFFFF" text-anchor="middle"
+        letter-spacing="-1">AVS</text>
+
+  <!-- underline accent using a soft pastel-to-red gradient -->
+  <defs>
+    <linearGradient id="underlineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E3D9FF"/>
+      <stop offset="50%" stop-color="#FF4B4B"/>
+      <stop offset="100%" stop-color="#C8F4E0"/>
+    </linearGradient>
+  </defs>
+  <rect x="16" y="45" width="32" height="3" rx="1.5" fill="url(#underlineGrad)"/>
+</svg>
